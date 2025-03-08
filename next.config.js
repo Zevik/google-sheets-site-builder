@@ -4,9 +4,6 @@ const nextConfig = {
   images: {
     domains: ['lh3.googleusercontent.com', 'docs.google.com', 'drive.google.com'],
   },
-  experimental: {
-    serverActions: true,
-  },
 }
 
 module.exports = nextConfig 
