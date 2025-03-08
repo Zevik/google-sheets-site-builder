@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { fetchAllSheetData } from '@/lib/sheets/sheetsService';
-import SiteRenderer from '@/components/content/SiteRenderer';
+import SiteRenderer from '../../components/content/SiteRenderer';
 import { SiteData } from '@/types';
 
 // פונקציה לקבלת נתוני האתר והדף
