@@ -6,4 +6,5 @@
   publish = ".next"
 
 [build.environment]
-  NEXT_USE_NETLIFY_EDGE = "true" 
+  NEXT_USE_NETLIFY_EDGE = "true"
+  GO_VERSION = "none" 
