@@ -72,8 +72,8 @@ async function getSiteAndPageData(siteSlug: string, pageSlug: string): Promise<{
 }
 
 // פונקציה ליצירת מטא-נתונים דינמיים
-export async function generateMetadata({ params }: { params: { site: string, sitepage: string } }): Promise<Metadata> {
-  const data = await getSiteAndPageData(params.site, params.sitepage);
+export async function generateMetadata({ params }: { params: { site: string, slug: string } }): Promise<Metadata> {
+  const data = await getSiteAndPageData(params.site, params.slug);
   
   if (!data) {
     return {
@@ -93,7 +93,7 @@ export async function generateMetadata({ params }: { params: { site: string, sit
     openGraph: {
       title: pageTitle,
       description: pageDescription,
-      url: `/${params.site}/${params.sitepage}`,
+      url: `/${params.site}/${params.slug}`,
       siteName,
       locale: site.language === 'he' ? 'he_IL' : 'en_US',
       type: 'website',
@@ -102,8 +102,8 @@ export async function generateMetadata({ params }: { params: { site: string, sit
 }
 
 // דף ספציפי באתר
-export default async function SitePageContent({ params }: { params: { site: string, sitepage: string } }) {
-  const data = await getSiteAndPageData(params.site, params.sitepage);
+export default async function SitePageContent({ params }: { params: { site: string, slug: string } }) {
+  const data = await getSiteAndPageData(params.site, params.slug);
   
   if (!data) {
     notFound();

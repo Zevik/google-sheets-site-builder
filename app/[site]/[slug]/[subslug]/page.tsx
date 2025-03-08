@@ -7,8 +7,8 @@ import { Metadata } from 'next';
 
 interface PageParams {
   site: string;
-  folder: string;
-  subpage: string;
+  slug: string;
+  subslug: string;
 }
 
 // פונקציה ליצירת מטא-נתונים דינמיים
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     
     // מציאת התיקייה והדף הנוכחיים
     const currentFolder = siteData.mainMenu.find(folder => 
-      folder.slug === params.folder && 
+      folder.slug === params.slug && 
       folder.active?.toLowerCase() === 'yes'
     );
     
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
     }
     
     const currentPage = siteData.pages.find(page => 
-      page.slug === params.subpage && 
+      page.slug === params.subslug && 
       String(page.folder_id) === String(currentFolder.id) && 
       page.active?.toLowerCase() === 'yes'
     );
@@ -111,7 +111,7 @@ export default async function SitePageView({ params }: { params: PageParams }) {
     
     // מציאת התיקייה והדף הנוכחיים
     const currentFolder = siteData.mainMenu.find(folder => 
-      folder.slug === params.folder && 
+      folder.slug === params.slug && 
       folder.active?.toLowerCase() === 'yes'
     );
     
@@ -120,7 +120,7 @@ export default async function SitePageView({ params }: { params: PageParams }) {
     }
     
     const currentPage = siteData.pages.find(page => 
-      page.slug === params.subpage && 
+      page.slug === params.subslug && 
       String(page.folder_id) === String(currentFolder.id) && 
       page.active?.toLowerCase() === 'yes'
     );
